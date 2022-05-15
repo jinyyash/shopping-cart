@@ -1,6 +1,7 @@
 import express from "express";
 import { graphqlHTTP } from "express-graphql";
 import { createConnection } from "typeorm";
+import { Users } from "./db/Entities/User";
 import { schema } from "./function/user";
 
 const main = async () => {
@@ -10,8 +11,8 @@ const main = async () => {
     username: "jinadi",
     password: "",
     logging: true,
-    synchronize: false,
-    entities: [],
+    synchronize: true,
+    entities: [Users],
   });
   const app = express();
   app.use(express.json());
